@@ -1,0 +1,47 @@
+﻿@model IEnumerable<DCSWebAPI.Models.Type>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New Type", "Create")
+</p>
+<table class="table table-striped">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.type_id)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.type_name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.class_id)
+        </th>
+        
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_id)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.type_name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.class_id)
+        </td>
+       
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.type_id }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.type_id })
+        </td>
+    </tr>
+}
+
+</table>

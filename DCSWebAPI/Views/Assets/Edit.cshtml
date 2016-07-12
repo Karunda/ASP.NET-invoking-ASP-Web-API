@@ -1,0 +1,86 @@
+﻿@model DCSWebAPI.Models.Assets
+
+@{
+    ViewBag.Title = "Edit";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Edit</h2>
+
+@using (Html.BeginForm()) {
+    @Html.ValidationSummary(true)
+
+    <fieldset>
+        <legend>Assets</legend>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.asset_id)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.asset_id)
+            @Html.ValidationMessageFor(model => model.asset_id)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.asset_name)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.asset_name)
+            @Html.ValidationMessageFor(model => model.asset_name)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.asset_price)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.asset_price)
+            @Html.ValidationMessageFor(model => model.asset_price)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.installed_date)
+        </div>
+        <div class="editor-field">
+            @Html.EditorFor(model => model.installed_date)
+            @Html.ValidationMessageFor(model => model.installed_date)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.class_id)
+        </div>       
+        <div class="editor-field">
+        @Html.DropDownListFor(model => model.class_id, Model.classes)
+        </div>
+
+        <div class="editor-label">
+            @Html.LabelFor(model => model.type_id)
+        </div>       
+        <div class="editor-field">
+        @Html.DropDownListFor(model => model.type_id, Model.types)
+        </div>
+        <div class="editor-label">
+            @Html.LabelFor(model => model.brand_id)
+        </div>       
+        <div class="editor-field">
+        @Html.DropDownListFor(model => model.brand_id, Model.brands)
+        </div>
+          <div class="editor-label">
+            @Html.LabelFor(model => model.model_id)
+        </div>       
+        <div class="editor-field">
+        @Html.DropDownListFor(model => model.model_id, Model.models)
+        </div>
+
+        <p>
+            <input type="submit" value="Save" />
+        </p>
+    </fieldset>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}
